@@ -143,6 +143,7 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value}>
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="serviceQuality"
                         value={value}
@@ -173,6 +174,7 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value}>
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="beverageQuality"
                         value={value}
@@ -204,6 +206,7 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value}>
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="cleanliness"
                         value={value}
@@ -234,6 +237,7 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value}>
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="overallExperience"
                         value={value}
