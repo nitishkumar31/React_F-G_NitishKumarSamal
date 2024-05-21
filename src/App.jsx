@@ -1,21 +1,28 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import FeedbackFormPage from "./pages/FeedbackFormPage";
 import SubmissionsPage from "./pages/SubmissionsPage";
+import NotFound from "./pages/NotFound";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <FeedbackFormPage />,
+  },
+  {
+    path: "/submissions",
+    element: <SubmissionsPage />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<FeedbackFormPage />} />
-        <Route path="/submissions" element={<SubmissionsPage />} />
-        <Route
-          path="*"
-          element={
-            <h1 className="text-center text-red-500 mt-10">404 - Not Found</h1>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import FormDetails from "../components/FormDetails";
 
 const Submissions = () => {
   const [submissions, setSubmissions] = useState([]);
   const [selectedSubmissions, setSelectedSubmissions] = useState([]);
+  const [showFormDetails, setShowFormDetails] = useState(false);
+  const [formDetails, setFormDetails] = useState({});
 
   useEffect(() => {
     const storedSubmissions =
@@ -28,9 +31,14 @@ const Submissions = () => {
     setSelectedSubmissions([]);
   };
 
+  const handleFormDetailsButton = (submissionData) => {
+    setFormDetails(submissionData);
+    setShowFormDetails(true);
+  };
+
   return (
-    <div className="mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-4">Submissions</h1>
+    <div className="mx-auto pt-8 px-8">
+      <h1 className="text-3xl font-bold mb-4 text-center">Submissions</h1>
       {submissions.length > 0 ? (
         <>
           <div className="flex justify-between px-4">
@@ -49,49 +57,119 @@ const Submissions = () => {
             </Link>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="relative min-w-full bg-white border table-auto-4">
-              <thead className="sticky bg-slate-300">
-                <tr>
-                  <th className="py-2 border">Select</th>
-                  <th className="py-2 border">Customer Name</th>
-                  <th className="py-2 border">Email</th>
-                  <th className="py-2 border">Phone</th>
-                  <th className="py-2 border">Service Quality</th>
-                  <th className="py-2 border">Beverage Quality</th>
-                  <th className="py-2 border">Cleanliness</th>
-                  <th className="py-2 border">Overall Experience</th>
-                </tr>
-              </thead>
-              <tbody>
-                {submissions.map((submission, index) => (
-                  <tr key={index}>
-                    <td className="py-2 border">
+          <div className="table-container overflow-auto">
+            <div className="submission-tablew-[90vw] h-[calc(100vh-160px)]">
+              <table className="relative w-full mx-auto bg-white border">
+                <thead className="sticky top-[-1px] bg-purple-100">
+                  <tr>
+                    <th
+                      title="Select All"
+                      className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center"
+                    >
                       <input
                         type="checkbox"
-                        checked={selectedSubmissions.includes(index)}
-                        onChange={() => handleSelectSubmission(index)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelectedSubmissions(
+                              submissions.map((_, index) => index)
+                            );
+                          } else {
+                            setSelectedSubmissions([]);
+                          }
+                        }}
+                        className="accent-purple-500"
                       />
-                    </td>
-                    <td className="py-2 border">{submission.customerName}</td>
-                    <td className="py-2 border">{submission.email}</td>
-                    <td className="py-2 border">{submission.phone}</td>
-                    <td className="py-2 border">{submission.serviceQuality}</td>
-                    <td className="py-2 border">
-                      {submission.beverageQuality}
-                    </td>
-                    <td className="py-2 border">{submission.cleanliness}</td>
-                    <td className="py-2 border">
-                      {submission.overallExperience}
-                    </td>
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Form Details
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Customer Name
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Email
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Phone
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Please rate the quality of the service you received from
+                      your host.
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Please rate the quality of your beverage.
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Was our restaurant clean?
+                    </th>
+                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                      Please rate your overall dining experience.
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {submissions.map((submission, index) => (
+                    <tr key={index}>
+                      <td className="py-2 border border-slate-300 text-center">
+                        <input
+                          title="Select"
+                          className="accent-purple-500"
+                          type="checkbox"
+                          checked={selectedSubmissions.includes(index)}
+                          onChange={() => handleSelectSubmission(index)}
+                        />
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        <button
+                          onClick={() => handleFormDetailsButton(submission)}
+                          className="text-blue-500 hover:underline"
+                        >
+                          View Details
+                        </button>
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        {submission.customerName}
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        {submission.email}
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        {submission.phone}
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        {submission.serviceQuality}
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        {submission.beverageQuality}
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        {submission.cleanliness}
+                      </td>
+                      <td className="py-2 px-4 border border-slate-300 text-center">
+                        {submission.overallExperience}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+          <FormDetails
+            submission={formDetails}
+            showFormDetails={showFormDetails}
+            setShowFormDetails={setShowFormDetails}
+          />
         </>
       ) : (
-        <p>No submissions found</p>
+        <div className="flex flex-col gap-6">
+          <p>No submissions found</p>
+          <Link
+            to="/"
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 h-10 px-4 mx-auto rounded w-fit"
+          >
+            Add New
+          </Link>
+        </div>
       )}
     </div>
   );

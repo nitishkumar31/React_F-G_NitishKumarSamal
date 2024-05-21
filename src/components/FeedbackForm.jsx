@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
+import SuccessPopup from "./SuccessPopup";
 
 const FeedbackForm = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -43,7 +44,6 @@ const FeedbackForm = () => {
     const submissions = JSON.parse(localStorage.getItem("feedback")) || [];
     localStorage.setItem("feedback", JSON.stringify([...submissions, values]));
     setShowSuccessMessage(true);
-    setTimeout(() => setShowSuccessMessage(false), 3000);
     resetForm();
   };
 
@@ -55,6 +55,7 @@ const FeedbackForm = () => {
         possible, so we welcome your comments. Please fill out this
         questionnaire. Thank you.
       </p>
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -109,18 +110,17 @@ const FeedbackForm = () => {
                 <PhoneInput
                   name="phone"
                   defaultCountry="IN"
-                  className="w-full border border-gray-300 p-2 rounded"
+                  className="w-full border border-gray-300 p-2 rounded focus-within:border-2 focus-within:border-black"
                   placeholder="9999999999"
                   value={values.phone}
                   onChange={(value) => setFieldValue("phone", value)}
-                  //   onBlur={() => setFieldTouched("phone", true)}
+                  onBlur={() => setFieldTouched("phone", true)}
                 />
-                {errors.phone && (
+                {touched.phone && errors.phone && (
                   <div className="before:content-['!'] before:border-red-500 before:border-2 before:rounded-full before:px-[5px] before:text-[10px] before:font-bold before:me-3 p-1 text-red-500 text-sm mt-1 border border-red-300 rounded bg-red-100">
-                    {errors.phone?.type === "required" && touched.phone
+                    {errors.phone?.type === "required"
                       ? errors.phone.message
                       : errors.phone}
-                    {/* {errors.phone} */}
                   </div>
                 )}
 
@@ -141,8 +141,9 @@ const FeedbackForm = () => {
                 </label>
                 <div className="flex space-x-4">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
-                    <label key={value}>
+                    <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="serviceQuality"
                         value={value}
@@ -171,8 +172,9 @@ const FeedbackForm = () => {
                 </label>
                 <div className="flex space-x-4">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
-                    <label key={value}>
+                    <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="beverageQuality"
                         value={value}
@@ -202,8 +204,9 @@ const FeedbackForm = () => {
                 </label>
                 <div className="flex space-x-4">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
-                    <label key={value}>
+                    <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="cleanliness"
                         value={value}
@@ -232,8 +235,9 @@ const FeedbackForm = () => {
                 </label>
                 <div className="flex space-x-4">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
-                    <label key={value}>
+                    <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="overallExperience"
                         value={value}
@@ -270,41 +274,10 @@ const FeedbackForm = () => {
         )}
       </Formik>
 
-      {showSuccessMessage && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-            <div className= " text-white mb-4 bg-green-600 w-fit rounded-full p-3 mx-auto">
-              
-              <svg
-                className="w-12 h-12 mx-auto"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-            </div>
-            <h2 className="text-2xl font-bold mb-2">
-              Thank you for providing the feedback
-            </h2>
-            <p className="mb-4">
-              We will work towards improving your experience
-            </p>
-            <button
-              onClick={() => setShowSuccessMessage(false)}
-              className="bg-purple-500 text-white mt-6 py-2 px-8 rounded hover:bg-purple-700 cursor-pointer"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <SuccessPopup
+        showSuccessMessage={showSuccessMessage}
+        setShowSuccessMessage={setShowSuccessMessage}
+      />
     </>
   );
 };
