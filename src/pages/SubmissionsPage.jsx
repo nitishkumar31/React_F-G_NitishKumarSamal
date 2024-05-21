@@ -37,13 +37,13 @@ const Submissions = () => {
   };
 
   return (
-    <div className="mx-auto pt-8 px-8">
-      <h1 className="text-3xl font-bold mb-4 text-center">Submissions</h1>
+    <div className="mt-4 mx-2 p-3 bg-slate-100 rounded-lg">
+      <h1 className="text-3xl font-bold mb-3 text-center bg-white">Submissions</h1>
       {submissions.length > 0 ? (
         <>
-          <div className="flex justify-between px-4">
+          <div className="flex justify-between gap-2 items-center py-2 px-4 bg-white">
             <button
-              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 cursor-pointer mb-4"
+              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 cursor-pointer"
               onClick={handleDeleteSelected}
               disabled={selectedSubmissions.length === 0}
             >
@@ -58,7 +58,7 @@ const Submissions = () => {
           </div>
 
           <div className="table-container overflow-auto">
-            <div className="submission-tablew-[90vw] h-[calc(100vh-160px)]">
+            <div className="submission-table w-[90vw] h-[calc(100vh-160px)]">
               <table className="relative w-full mx-auto bg-white border">
                 <thead className="sticky top-[-1px] bg-purple-100">
                   <tr>
@@ -68,6 +68,7 @@ const Submissions = () => {
                     >
                       <input
                         type="checkbox"
+                        className="accent-purple-500 cursor-pointer"
                         onChange={(e) => {
                           if (e.target.checked) {
                             setSelectedSubmissions(
@@ -77,7 +78,6 @@ const Submissions = () => {
                             setSelectedSubmissions([]);
                           }
                         }}
-                        className="accent-purple-500"
                       />
                     </th>
                     <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
@@ -113,7 +113,7 @@ const Submissions = () => {
                       <td className="py-2 border border-slate-300 text-center">
                         <input
                           title="Select"
-                          className="accent-purple-500"
+                          className="accent-purple-500 cursor-pointer"
                           type="checkbox"
                           checked={selectedSubmissions.includes(index)}
                           onChange={() => handleSelectSubmission(index)}

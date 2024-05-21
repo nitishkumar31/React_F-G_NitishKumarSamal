@@ -139,10 +139,11 @@ const FeedbackForm = () => {
                   Please rate the quality of the service you received from your
                   host.
                 </label>
-                <div className="flex space-x-4">
+                <div className="flex gap-x-8 flex-wrap justify-start whitespace-nowrap">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="serviceQuality"
                         value={value}
@@ -153,7 +154,7 @@ const FeedbackForm = () => {
                             values.serviceQuality === value ? "" : value
                           )
                         }
-                      />{" "}
+                      /> &emsp;
                       {value}
                     </label>
                   ))}
@@ -169,22 +170,22 @@ const FeedbackForm = () => {
                 <label className="block font-bold mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">
                   Please rate the quality of your beverage.
                 </label>
-                <div className="flex space-x-4">
+                <div className="flex gap-x-8 flex-wrap justify-start whitespace-nowrap">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="beverageQuality"
                         value={value}
                         checked={values.beverageQuality === value}
-                        //   onChange={() => setFieldValue("beverageQuality", value)}
                         onChange={() =>
                           setFieldValue(
                             "beverageQuality",
                             values.beverageQuality === value ? "" : value
                           )
                         }
-                      />{" "}
+                      /> &emsp;
                       {value}
                     </label>
                   ))}
@@ -200,10 +201,11 @@ const FeedbackForm = () => {
                 <label className="block font-bold mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">
                   Was our restaurant clean?
                 </label>
-                <div className="flex space-x-4">
+                <div className="flex gap-x-8 flex-wrap justify-start whitespace-nowrap">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="cleanliness"
                         value={value}
@@ -214,7 +216,7 @@ const FeedbackForm = () => {
                             values.cleanliness === value ? "" : value
                           )
                         }
-                      />{" "}
+                      /> &emsp;
                       {value}
                     </label>
                   ))}
@@ -230,24 +232,22 @@ const FeedbackForm = () => {
                 <label className="block font-bold mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">
                   Please rate your overall dining experience.
                 </label>
-                <div className="flex space-x-4">
+                <div className="flex gap-x-8 flex-wrap justify-start whitespace-nowrap">
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
+                        className="accent-purple-500"
                         type="checkbox"
                         name="overallExperience"
                         value={value}
                         checked={values.overallExperience === value}
-                        // onChange={() =>
-                        //   setFieldValue("overallExperience", value)
-                        // }
                         onChange={() =>
                           setFieldValue(
                             "overallExperience",
                             values.overallExperience === value ? "" : value
                           )
                         }
-                      />{" "}
+                      /> &emsp;
                       {value}
                     </label>
                   ))}

@@ -3,8 +3,8 @@ import FeedbackForm from "../components/FeedbackForm";
 
 const FeedbackFormPage = () => {
   return (
-    <div className="max-w-screen-xl mx-auto mt-8 p-4 bg-slate-50 rounded-lg">
-      <div className="flex justify-end">
+    <div className="max-w-screen-xl mx-auto mt-8 p-4 bg-slate-100 rounded-lg">
+      <div className="pb-3 flex justify-end">
         <Link
           to="/submissions"
           className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-fit"
