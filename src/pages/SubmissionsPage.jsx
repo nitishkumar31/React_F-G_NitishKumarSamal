@@ -37,18 +37,14 @@ const Submissions = () => {
   };
 
   return (
-    <div className="mt-4 mx-2 p-3 bg-slate-100 rounded-lg">
-      <h1 className="text-3xl font-bold mb-3 text-center bg-white">Submissions</h1>
+    <div className="m-2 p-3 bg-slate-100 rounded-lg">
+      <h1 className="text-3xl font-bold mb-3 text-center bg-white">
+        Submissions
+      </h1>
       {submissions.length > 0 ? (
         <>
           <div className="flex justify-between gap-2 items-center py-2 px-4 bg-white">
-            <button
-              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 cursor-pointer"
-              onClick={handleDeleteSelected}
-              disabled={selectedSubmissions.length === 0}
-            >
-              Delete Selected
-            </button>
+            <h2 className="text-2xl font-bold">Aromatic Bar List</h2>
             <Link
               to="/"
               className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 h-10 px-4 rounded w-fit"
@@ -57,8 +53,9 @@ const Submissions = () => {
             </Link>
           </div>
 
+          {/* Submission Table */}
           <div className="table-container overflow-auto">
-            <div className="submission-table w-[90vw] h-[calc(100vh-160px)]">
+            <div className="submission-table w-[90vw] h-auto max-h-[calc(100vh-220px)]">
               <table className="relative w-full mx-auto bg-white border">
                 <thead className="sticky top-[-1px] bg-purple-100">
                   <tr>
@@ -154,11 +151,24 @@ const Submissions = () => {
               </table>
             </div>
           </div>
+
+          {/* Form Details Modal */}
           <FormDetails
             submission={formDetails}
             showFormDetails={showFormDetails}
             setShowFormDetails={setShowFormDetails}
           />
+
+          {/* Delete Button */}
+          <div className="mt-3 px-3 flex justify-end">
+            <button
+              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 cursor-pointer"
+              onClick={handleDeleteSelected}
+              disabled={selectedSubmissions.length === 0}
+            >
+              Delete Selected
+            </button>
+          </div>
         </>
       ) : (
         <div className="flex flex-col gap-6">
