@@ -5,6 +5,10 @@
 .PhoneInputInput:focus {
     outline: none;
 }
+
+/* table tbody tr:hover {
+    background-color: aquamarine;
+} */
 /* 
 .submission-table tbody {
     display: block;

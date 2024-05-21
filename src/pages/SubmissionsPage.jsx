@@ -57,7 +57,7 @@ const Submissions = () => {
           <div className="table-container overflow-auto">
             <div className="submission-table w-[90vw] h-auto max-h-[calc(100vh-220px)]">
               <table className="relative w-full mx-auto bg-white border">
-                <thead className="sticky top-[-1px] bg-purple-100">
+                <thead className="sticky top-[-1px] bg-purple-300">
                   <tr>
                     <th
                       title="Select All"
@@ -106,7 +106,7 @@ const Submissions = () => {
                 </thead>
                 <tbody>
                   {submissions.map((submission, index) => (
-                    <tr key={index}>
+                    <tr key={index} className="transition-all duration-150 hover:bg-purple-100">
                       <td className="py-2 border border-slate-300 text-center">
                         <input
                           title="Select"
