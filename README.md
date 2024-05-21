@@ -1,6 +1,6 @@
 # Aromatic Bar Feedback Form
 
-This project is a feedback form for Aromatic Bar, designed to collect customer feedback on various aspects of their dining experience. The form is built using React and Formik, with validation handled by Yup.
+This project is a feedback form for Aromatic Bar, designed to collect customer feedback on various aspects of their dining experience. The form is built using React JS, Tailwind and Formik, with validation handled by Yup.
 
 ## Table of Contents
 
@@ -8,7 +8,6 @@ This project is a feedback form for Aromatic Bar, designed to collect customer f
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
 - [Project Structure](#project-structure)
-- [Customization](#customization)
 - [Dependencies](#dependencies)
 
 ## Prerequisites
@@ -16,7 +15,7 @@ This project is a feedback form for Aromatic Bar, designed to collect customer f
 Before you begin, ensure you have met the following requirements:
 
 - Node.js (>= 14.x)
-- npm or yarn
+- npm
 
 ## Installation
 
@@ -35,10 +34,6 @@ To set up the project, follow these steps:
     npm install
     ```
 
-    Using yarn:
-    ```sh
-    yarn install
-    ```
 
 ## Running the Project
 
@@ -46,4 +41,47 @@ To start the development server, run:
 
 Using npm:
 ```sh
-npm start
+npm run dev
+```
+The application will be available at `http://localhost:5173`.
+
+
+## Project Structure
+
+The project structure is as follows:
+
+```
+React_F-G_NitishKumarSamal/
+├── public/
+│   └── ...
+├── src/
+│   ├── components/
+│   │   └── FeedbackForm.jsx
+│   ├── pages/
+│   |   ├── FeedbackFormPage.jsx
+│   │   └── SubmissionsPage.jsx
+│   ├── App.js
+│   ├── main.js
+│   └── index.css
+├── .gitignore
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+├── postcss.config.js
+├── tailwind.config.js
+├── vite.config.js
+└── .eslintrc.cjs
+```
+
+
+## Dependencies
+
+The project relies on the following major dependencies:
+- React
+- Formik
+- Yup
+- Tailwind CSS
+- react-router-dom
+- react-phone-number-input
+- libphonenumber-js

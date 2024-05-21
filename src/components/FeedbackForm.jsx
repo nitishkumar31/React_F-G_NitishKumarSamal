@@ -143,7 +143,6 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
-                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="serviceQuality"
                         value={value}
@@ -174,7 +173,6 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
-                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="beverageQuality"
                         value={value}
@@ -206,7 +204,6 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
-                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="cleanliness"
                         value={value}
@@ -237,7 +234,6 @@ const FeedbackForm = () => {
                   {["Excellent", "Good", "Fair", "Bad"].map((value) => (
                     <label key={value} className="cursor-pointer">
                       <Field
-                        className="accent-purple-500 cursor-pointer"
                         type="checkbox"
                         name="overallExperience"
                         value={value}
