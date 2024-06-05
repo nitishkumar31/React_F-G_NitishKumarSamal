@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "react-phone-number-input/style.css";
@@ -49,12 +50,14 @@ const FeedbackForm = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold bg-white p-2 rounded">Aromatic Bar</h1>
-      <p className="bg-white p-2 rounded mb-10">
-        We are committed to providing you with the best dining experience
-        possible, so we welcome your comments. Please fill out this
-        questionnaire. Thank you.
-      </p>
+      <div className="py-4 flex justify-end">
+        <Link
+          to="/submissions"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-fit"
+        >
+          View All Submissions
+        </Link>
+      </div>
 
       <Formik
         initialValues={initialValues}
@@ -154,7 +157,7 @@ const FeedbackForm = () => {
                             values.serviceQuality === value ? "" : value
                           )
                         }
-                      /> &emsp;
+                      /> &nbsp;
                       {value}
                     </label>
                   ))}
@@ -185,7 +188,7 @@ const FeedbackForm = () => {
                             values.beverageQuality === value ? "" : value
                           )
                         }
-                      /> &emsp;
+                      /> &nbsp;
                       {value}
                     </label>
                   ))}
@@ -216,7 +219,7 @@ const FeedbackForm = () => {
                             values.cleanliness === value ? "" : value
                           )
                         }
-                      /> &emsp;
+                      /> &nbsp;
                       {value}
                     </label>
                   ))}
@@ -247,7 +250,7 @@ const FeedbackForm = () => {
                             values.overallExperience === value ? "" : value
                           )
                         }
-                      /> &emsp;
+                      /> &nbsp;
                       {value}
                     </label>
                   ))}

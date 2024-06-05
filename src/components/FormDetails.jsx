@@ -9,13 +9,13 @@ const FormDetails = ({ showFormDetails, setShowFormDetails, submission }) => {
         }`}
       ></div>
       <div
-        className={`fixed inset-0 flex items-center justify-center bg-opacity-50 transition-all duration-300 ${
+        className={`fixed inset-0 flex items-center justify-center bg-opacity-50 transition-all duration-300 overflow-y-auto ${
           showFormDetails ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
-        <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-                  <div>
-                      <h2 className="text-3xl mb-4">Customer Details</h2>
+        <div className="bg-white p-8 rounded-lg shadow-lg text-center mt-16 sm:mt-0">
+          <div>
+            <h2 className="text-3xl sm:text-2xl font-semibold mb-4">Customer Details</h2>
             <table>
               <tbody>
                 <tr>
@@ -27,13 +27,17 @@ const FormDetails = ({ showFormDetails, setShowFormDetails, submission }) => {
                   </td>
                 </tr>
                 <tr>
-                  <th className="py-2 px-4 bg-purple-100 text-start border border-slate-300">Email</th>
+                  <th className="py-2 px-4 bg-purple-100 text-start border border-slate-300">
+                    Email
+                  </th>
                   <td className="py-2 px-4 text-start border border-slate-300">
                     {submission.email}
                   </td>
                 </tr>
                 <tr>
-                  <th className="py-2 px-4 bg-purple-100 text-start border border-slate-300">Phone</th>
+                  <th className="py-2 px-4 bg-purple-100 text-start border border-slate-300">
+                    Phone
+                  </th>
                   <td className="py-2 px-4 text-start border border-slate-300">
                     {submission.phone}
                   </td>

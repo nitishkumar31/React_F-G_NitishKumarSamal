@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom";
 import FeedbackForm from "../components/FeedbackForm";
 
 const FeedbackFormPage = () => {
   return (
     <div className="max-w-screen-xl mx-auto mt-8 p-4 bg-slate-100 rounded-lg">
-      <div className="pb-3 flex justify-end">
-        <Link
-          to="/submissions"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-fit"
-        >
-          View All Submissions
-        </Link>
-      </div>
+      <h1 className="text-3xl font-bold bg-white p-2 rounded">
+        Restaurant Grievance Form
+      </h1>
+      <p className="bg-white p-2 rounded">
+        {/* We are committed to providing you with the best dining experience
+        possible, so we welcome your comments. Please fill out this
+        questionnaire. Thank you. */}
+        We are dedicated to offering you an exceptional dining experience and
+        greatly value your feedback. Please take a moment to complete this
+        questionnaire. Thank you for helping us serve you better.
+      </p>
       <FeedbackForm />
     </div>
   );

@@ -44,24 +44,24 @@ const Submissions = () => {
       {submissions.length > 0 ? (
         <>
           <div className="flex justify-between gap-2 items-center py-2 px-4 bg-white">
-            <h2 className="text-2xl font-bold">Aromatic Bar List</h2>
+            <h2 className="text-2xl font-bold">Feedback List</h2>
             <Link
               to="/"
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 h-10 px-4 rounded w-fit"
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-8 rounded w-fit whitespace-nowrap"
             >
               Add New
             </Link>
           </div>
 
           {/* Submission Table */}
-          <div className="table-container overflow-auto">
-            <div className="submission-table w-[90vw] h-auto max-h-[calc(100vh-220px)]">
-              <table className="relative w-full mx-auto bg-white border">
-                <thead className="sticky top-[-1px] bg-purple-300">
+          <div className="table-wrapper rounded-md border border-slate-300 overflow-auto">
+            <div className="table-container h-auto max-h-[calc(100vh-220px)]">
+              <table className="relative w-full mx-auto bg-white">
+                <thead className="sticky top-[-1px] bg-purple-200">
                   <tr>
                     <th
                       title="Select All"
-                      className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center"
+                      className="py-3 px-4 whitespace-nowrap text-center"
                     >
                       <input
                         type="checkbox"
@@ -77,37 +77,40 @@ const Submissions = () => {
                         }}
                       />
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap text-left">
                       Form Details
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap text-left">
                       Customer Name
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap text-left">
                       Email
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap text-left">
                       Phone
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap">
                       Please rate the quality of the service you received from
                       your host.
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap">
                       Please rate the quality of your beverage.
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap">
                       Was our restaurant clean?
                     </th>
-                    <th className="py-3 px-4 border border-slate-300 whitespace-nowrap text-center">
+                    <th className="py-3 px-5 whitespace-nowrap">
                       Please rate your overall dining experience.
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {submissions.map((submission, index) => (
-                    <tr key={index} className="transition-all duration-150 hover:bg-purple-100">
-                      <td className="py-2 border border-slate-300 text-center">
+                    <tr
+                      key={index}
+                      className="transition-all duration-150 hover:bg-purple-100 even:bg-gray-50"
+                    >
+                      <td className="py-2 text-center">
                         <input
                           title="Select"
                           className="accent-purple-500 cursor-pointer"
@@ -116,7 +119,7 @@ const Submissions = () => {
                           onChange={() => handleSelectSubmission(index)}
                         />
                       </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
+                      <td className="py-2 px-5">
                         <button
                           onClick={() => handleFormDetailsButton(submission)}
                           className="text-blue-500 hover:underline"
@@ -124,25 +127,26 @@ const Submissions = () => {
                           View Details
                         </button>
                       </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
+                      <td className="py-2 px-5 flex items-center whitespace-nowrap">
+                        <div
+                          className="mr-2 border text-white rounded-full w-6 h-6 flex items-center justify-center"
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(to bottom right, #00C0FF, #4218B8)",
+                          }}
+                        >
+                          {submission.customerName[0].toUpperCase()}
+                        </div>
                         {submission.customerName}
                       </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
-                        {submission.email}
-                      </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
-                        {submission.phone}
-                      </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
-                        {submission.serviceQuality}
-                      </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
+                      <td className="py-2 px-5">{submission.email}</td>
+                      <td className="py-2 px-5">{submission.phone}</td>
+                      <td className="py-2 px-5">{submission.serviceQuality}</td>
+                      <td className="py-2 px-5">
                         {submission.beverageQuality}
                       </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
-                        {submission.cleanliness}
-                      </td>
-                      <td className="py-2 px-4 border border-slate-300 text-center">
+                      <td className="py-2 px-5">{submission.cleanliness}</td>
+                      <td className="py-2 px-5">
                         {submission.overallExperience}
                       </td>
                     </tr>
