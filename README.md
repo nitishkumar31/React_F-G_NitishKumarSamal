@@ -1,6 +1,6 @@
-# Aromatic Bar Feedback Form
+# Feedback Grievance Form
 
-This project is a feedback form for Aromatic Bar, designed to collect customer feedback on various aspects of their dining experience. The form is built using React JS, Tailwind and Formik, with validation handled by Yup.
+This project is a feedback form for a restaurant, designed to collect customer feedback on various aspects of their dining experience. The form is built using React JS, Tailwind and Formik, with validation handled by Yup.
 
 ## Table of Contents
 
@@ -56,9 +56,12 @@ React_F-G_NitishKumarSamal/
 │   └── ...
 ├── src/
 │   ├── components/
-│   │   └── FeedbackForm.jsx
+│   |   ├── FeedbackForm.jsx
+│   |   ├── FormDetails.jsx
+│   |   └── SuccessPopup.jsx
 │   ├── pages/
 │   |   ├── FeedbackFormPage.jsx
+│   |   ├── NotFound.jsx
 │   │   └── SubmissionsPage.jsx
 │   ├── App.js
 │   ├── main.js
