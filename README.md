@@ -1,4 +1,4 @@
-# Feedback Grievance Form
+# Feedback Grievance System
 
 This project is a feedback form for a restaurant, designed to collect customer feedback on various aspects of their dining experience. The form is built using React JS, Tailwind and Formik, with validation handled by Yup.
 
